@@ -1,0 +1,17 @@
++++
+title = "1.0 Donor sign-up"
+chapter = true
+weight = 30
++++
+
+## Let's build!
+
+The first feature of our application is going to be that a person can sign-up to become a blood donor. Before learning
+to walk we should first learn how to crawl.
+
+What would this workshop be without a "hello world"?
+
+![](/images/donor_signup_arch.png)
+
+**Although all code samples are available in repository branches, you are strongly encouraged to type them yourself and 
+get a feel for the framework and supporting tools.**

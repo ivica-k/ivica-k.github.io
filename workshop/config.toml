@@ -1,0 +1,38 @@
+baseURL = "https://ivica-k.github.io/serverless_python_workshop"
+title = "Build serverless apps with Python"
+theme = "learn"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+uglyurls = true
+sectionPagesMenu = "main"
+enableEmoji = true
+canonifyURLs = true
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'monokai'
+    tabWidth = 4
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+themeVariant = "mine"
+showVisitedLinks = false
+author = "Ivica Kolenkaš"
+description = "A workshop on building serverless apps with Python"
+disableSearch = true
+disableAssetsBusting = true
+disableLanguageSwitchingButton = true
+disableShortcutsTitle = true
+css = ["css/style.css"]
