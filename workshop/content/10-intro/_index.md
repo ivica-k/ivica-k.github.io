@@ -11,7 +11,10 @@ To complete this workshop, an AWS account is needed which will host the resource
 ## Classroom-like setting
 
 AWS account, necessary credentials and required permissions will be provided to you. All cost incurred while using the
-resources from this workshop are associated to the AWS account provided to you. 
+resources from this workshop are associated to the AWS account provided to you.
+
+One or more _mentors_ are available to you - **make use** of their presence! Ask questions, look for guidance, 
+explanations and similar.
 
 ## On your own
 
@@ -139,6 +142,46 @@ Permissions policy required for this workshop is:
 
 Make sure to replace the `AWS_REGION` with the name of the AWS region you use and `AWS_ACCOUNT_ID` with your AWS
 account ID. The permisions policy may be attached to an IAM user or an IAM role, which is completely up to you dear reader.
+
+# Conventions
+
+#### Code
+Code, either Python or CLI commands, that you can copy/paste looks like:
+
+```bash
+echo "hello!"
+```
+
+```python
+print("hello!")
+```
+
+All code samples are available in repository branches (we'll get to that soon) or on these pages. However, you are 
+**strongly** encouraged to type them yourself and get a feel for the framework and supporting tools.
+
+#### CLI output
+
+CLI commands that you run will show some output. This output is not to be copy/pasted; it is the expected result of a
+command execution. It looks like:
+
+![](/images/code_screenshots/30_100_1.png)
+
+#### Notes
+
+When needed, colored sections will point out further reading material, potential pitfalls and misunderstandings. They
+come in green, orange and red:
+
+{{% notice tip %}}
+This is a tip.
+{{% /notice %}}
+
+{{% notice info %}}
+This is an information.
+{{% /notice %}}
+
+{{% notice warning %}}
+This is a warning.
+{{% /notice %}}
 
 ***
 
