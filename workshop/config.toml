@@ -35,4 +35,3 @@ disableSearch = true
 disableAssetsBusting = true
 disableLanguageSwitchingButton = true
 disableShortcutsTitle = true
-css = ["css/style.css"]
