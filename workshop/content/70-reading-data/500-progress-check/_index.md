@@ -10,7 +10,6 @@ Now would be a good time to do a progress check because we did so much work.
 
 Before going any further you should have:
 
-[//]: # (- [x] A DynamoDB table named `YOUR_FIRST_NAME-savealife-dev` with `PK` being the primary key)
 - [x] "Get all donors" AWS Lambda function deployed that returns all donors that signed up
 - [x] "Get a single donor" AWS Lambda function deployed that returns details for a single donor
 - [x] "Get all donation" AWS Lambda function deployed that returns all donations that were created
