@@ -110,7 +110,7 @@ of those (Chalice did it for us):
 
 ![](/images/stream_trigger.png)
 
-But because Chalice does not (yet) support filters for event sources we gotta do it ourselves. No biggie.
+But because Chalice does not (yet) support filters for event sources we have to do it ourselves. No biggie.
 The filter itself looks like this:
 
 ```json

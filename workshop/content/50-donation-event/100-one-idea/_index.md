@@ -115,7 +115,7 @@ Run the local server `chalice local --autoreload` and hit the endpoint we just c
 #### Another error ...
 
 The endpoint, from the API perspective, works just fine but nothing will be saved to the DynamoDB table. That is because
-of how our DynamoDB table was created.
+of how our DynamoDB table was created:
 
 {{<highlight python>}}
 client.create_table(

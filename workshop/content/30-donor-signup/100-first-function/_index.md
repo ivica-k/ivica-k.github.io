@@ -23,7 +23,7 @@ The workshop assumes you cloned the repository to your **home** folder.
 With the above commands executed, we are ready to create our first function and explore what AWS Lambda is and how 
 it works.
 
-Open `~/serverless_workshop/savealife/app.py` and fill it with the following contents:
+Open `~/serverless_workshop/savealife/app.py` and copy/paste the following contents:
 
 {{<highlight python>}}
 from os import getenv

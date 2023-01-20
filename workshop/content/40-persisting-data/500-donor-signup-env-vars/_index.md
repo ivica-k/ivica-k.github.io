@@ -56,6 +56,7 @@ in the environment. Having configuration in the environment allows us to use the
 one set of configuration for the sandbox (development) account and another one for our production account.
 
 Setting and changing environment variables in Chalice is done through the `.chalice/config.json` file.
+
 Make the change by executing:
 
 [//]: # (Environment variables can be specified per stage)

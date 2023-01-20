@@ -74,18 +74,20 @@ Looking closely into it we can discern two statements:
 The next step for us is to tell Chalice to not automatically generate the permissions policy because we are supplying
 our own, and that can be easily done in the `.chalice/config.json` file:
 
-{{<highlight json "hl_lines=7">}}
+{{<highlight bash "hl_lines=8">}}
+cat > .chalice/config.json <<EOF
 {
   "version": "2.0",
-  "app_name": "YOUR_FIRST_NAME_HERE-savealife",
+  "app_name": "$WORKSHOP_NAME-savealife",
   "stages": {
     "dev": {
       "api_gateway_stage": "api",
       "autogen_policy": false,
       "environment_variables": {
-        "TABLE_NAME": "YOUR_FIRST_NAME_HERE-savealife-dev"
+        "TABLE_NAME": "$WORKSHOP_NAME-savealife-dev"
       }
     }
   }
 }
+EOF
 {{</highlight>}}

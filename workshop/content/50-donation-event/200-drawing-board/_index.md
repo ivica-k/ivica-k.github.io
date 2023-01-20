@@ -25,8 +25,8 @@ ivica-savealife - DEBUG - Received JSON payload: {'city': 'Haarlem', 'address': 
 ivica-savealife - ERROR - An error occurred (ValidationException) when calling the PutItem operation: One or more parameter values were invalid: Missing the key first_name in the item
 ```
 
-`first_name` is the primary key of our table and it **must** be present in the item. But of course, a blood donation event
-does not have a `first_name`.
+`first_name` is the primary key of our table, and it **must** be present in the item being saved to the table.
+But of course, a blood donation event does not have a `first_name`.
 
 ![](/images/db_table_1.png)
 

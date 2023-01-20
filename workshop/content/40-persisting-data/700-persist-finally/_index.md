@@ -45,7 +45,7 @@ Looking at the logs with `chalice logs` we can see something along the lines of:
 
 **Congratulations!** :thumbsup:
 
-The function seems to be working and it is writing data to our DynamoDB table.
+The function seems to be working, and it is writing data to our DynamoDB table.
 ![](/images/donor_signup_dynamo.png)
 
 You may add additional items by invoking the function with a different `first_name` value. Since DynamoDB tables are 

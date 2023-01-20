@@ -221,6 +221,6 @@ Traceback (most recent call last):
 ValueError: Required parameter name not set
 ```
 
-If the error message was formatted a bit better, such as `ValueError: Required parameter 'name' not set` that
+Formatting the message in a different way, `ValueError: Required parameter 'name' not set` for example,
 would make it much more clear: a required parameter `name` is not set. In our case, name of the DynamoDB table is
 not set.

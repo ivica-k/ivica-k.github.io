@@ -17,7 +17,7 @@ API layer/user:
 
 - general success/failure when performing actions
 - an error message if an error happens
-- a `resource_id` if there was a write to the database (like a donor sign-up)
+- a `resource_id`, if there was a write to the database (like a donor sign-up)
 - a data structure to contain items read from a database (a list of donors for example)
 
 ```json

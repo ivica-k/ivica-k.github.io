@@ -5,23 +5,6 @@ weight: 10
 ---
 
 # Get all donors from a city
-
-[//]: # ()
-[//]: # (Filtering out donor sign-up events we did on the previous page is only half the work &#40;good work, but still only half&#41;.)
-
-[//]: # (At the beggining of this chapter we discussed how a potential solution might work:)
-
-[//]: # (- use DynamoDB streams to capture any newly created blood donation events)
-
-[//]: # (- **when a new blood donation event is created, we fetch all the donors from the city where the donation event will happen**)
-
-[//]: # (- batch up to 50 donor's emails and send and invoke SES `send_email&#40;&#41;` function)
-
-[//]: # ()
-[//]: # (This page will focus on the middle point in bold.)
-
-[//]: # (## To recap)
-
 As a short reminder, data structures that we're saving into DynamoDB are:
 
 ##### Donor
