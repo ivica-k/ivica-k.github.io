@@ -47,14 +47,7 @@ reflect those changes?
 
 A "donor" item looked like this, with `first_name` being the primary key:
 
-```json
-{
-  "first_name": "ivica",
-  "email": "ivica@server.com",
-  "blood_type": "A+",
-  "city": "Amsterdam"
-}
-```
+![](/images/code_screenshots/50_300_1.png)
 
 Now the primary key will be the `PK` field and everything else, the whole JSON payload, will become attributes.
 

@@ -101,17 +101,11 @@ which will give us the possibility to query for all donors from a specific city,
 specific city, or both.
 
 If we were to translate these into SQL:
-```sql
-SELECT * FROM donors
-WHERE `city` = 'Amsterdam';
-```
+![](/images/code_screenshots/80_20_1.png)
 
 and
 
-```sql
-SELECT * FROM donations
-WHERE `city` = 'Amsterdam';
-```
+![](/images/code_screenshots/80_20_2.png)
 
 ##### Create the index
 

@@ -88,18 +88,14 @@ by using:
 `Scan` operations are less efficient because they always scan the entire table or index. Optionally filters can be applied
 to the data set but they are only applied after reading (scanning) all data first. In SQL terms you can think of them as:
 
-```sql
-SELECT * FROM 'mytable' WHERE 'PK' like 'DONOR%'
-```
+![](/images/code_screenshots/70_100_1.png)
 
 They can return up to 1MB of data and if more data is to be returned it is then paged.
 
 `Query` operations are much more precise than `Scan` operations, and to be precise they require us to provide the
 primary key value to query with. In SQL terms you can think of them as:
 
-```sql
-SELECT * FROM 'mytable' WHERE 'PK' = "DONOR#1234"
-```
+![](/images/code_screenshots/70_100_2.png)
 
 Looking back to our code, we can see that it performs a `Scan` operation ($$$) with some server-side filtering; we
 are asking the table to give us all the items whose primary key `PK` begins with `DONOR`. Let's see it in action:
@@ -109,55 +105,17 @@ http -b GET :8000/donors
 ```
 will output something similar to:
 
-```bash{linenos=false}
-{
-    "error_message": "",
-    "resource_id": "",
-    "return_value": [
-        {
-            "PK": "DONOR#68252cff869a",
-            "city": "Amsterdam",
-            "email": "ivica@server.com",
-            "first_name": "ivica",
-            "type": "A+"
-        }
-    ],
-    "success": true
-}
-```
+![](/images/code_screenshots/70_100_3.png)
 
 **Deploy at will** and verify that your function is returning data when running locally and in AWS.
 
 `chalice deploy`
 
-```bash
-Creating deployment package.
-Updating policy for IAM role: ivica-savealife-dev-api_handler
-Updating lambda function: ivica-savealife-dev
-Updating rest API
-Resources deployed:
-  - Lambda ARN: arn:aws:lambda:eu-central-1:932785857088:function:ivica-savealife-dev
-  - Rest API URL: https://xxxxxxxx.execute-api.eu-central-1.amazonaws.com/api/
-```
+![](/images/code_screenshots/70_100_4.png)
 
 Performing that `GET` request to list all donors is now working as it should, showing all donors
 `http -b GET $(chalice url)/donors`
 
-```bash{linenos=false}
-{
-    "error_message": "",
-    "resource_id": "",
-    "return_value": [
-        {
-            "PK": "DONOR#68252cff869a",
-            "city": "Amsterdam",
-            "email": "ivica@server.com",
-            "first_name": "ivica",
-            "type": "A+"
-        }
-    ],
-    "success": true
-}
-```
+![](/images/code_screenshots/70_100_5.png)
 
 Great success!

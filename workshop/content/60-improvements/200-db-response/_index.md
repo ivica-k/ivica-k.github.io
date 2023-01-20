@@ -20,14 +20,7 @@ API layer/user:
 - a `resource_id`, if there was a write to the database (like a donor sign-up)
 - a data structure to contain items read from a database (a list of donors for example)
 
-```json
-{
-  "resource_id": "",
-  "error_message": "",
-  "success": true,
-  "return_value": {}
-}
-```
+![](/images/code_screenshots/60_200_1.png)
 
 I've been a fan of Python `dataclasses` since they were introduced back in Python 3.6 and the above-mentioned data structure
 is perfect for a dataclass.

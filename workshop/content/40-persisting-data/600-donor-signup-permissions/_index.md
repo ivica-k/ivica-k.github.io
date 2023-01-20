@@ -13,11 +13,7 @@ http -b POST $(chalice url)/donor/signup first_name=ivica
 ```
 will output lines similar to:
 
-```bash{linenos=false}
-An error occurred (AccessDeniedException) when calling the PutItem operation: 
-User: arn:aws:sts::932785857088:assumed-role/ivica-savealife-dev/ivica-savealife-dev is not authorized to perform: 
-dynamodb:PutItem on resource: arn:aws:dynamodb:eu-central-1:932785857088:table/ivica-savealife-dev
-```
+![](/images/code_screenshots/40_600_1.png)
 
 On this page we will
 learn how to adjust permissions that our AWS Lambda functions has.
@@ -66,6 +62,9 @@ cat > .chalice/policy-dev.json <<EOF
 }
 EOF
 ```
+
+After making the changes with the command from above, your `.chalice/policy-dev.json` file looks similar to:
+![](/images/code_screenshots/40_600_2.png)
 
 Looking closely into it we can discern two statements:
 - The first statement allows our Lambda function to perform actions on logs

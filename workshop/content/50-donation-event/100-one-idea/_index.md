@@ -67,14 +67,7 @@ should know about a blood donation are 4 pieces of information: in which _city_ 
 and at _what time_, which _blood types_ are needed and what is the _location_.
 So, something like this:
 
-```json
-{
-  "city": "Haarlem",
-  "datetime": "2022-6-4 13:00:00",
-  "blood_types": "A-",
-  "address": "Main Street"
-}
-```
+![](/images/code_screenshots/50_100_1.png)
 
 #### Persisting to DynamoDB
 
@@ -117,14 +110,7 @@ Run the local server `chalice local --autoreload` and hit the endpoint we just c
 The endpoint, from the API perspective, works just fine but nothing will be saved to the DynamoDB table. That is because
 of how our DynamoDB table was created:
 
-{{<highlight python>}}
-client.create_table(
-    TableName=table_name,
-    AttributeDefinitions=[{"AttributeName": "first_name","AttributeType": "S"}],
-    KeySchema=[{"AttributeName": "first_name", "KeyType": "HASH"}]
-    ... SNIP ...
-)
-{{</highlight>}}
+![](/images/code_screenshots/50_100_2.png)
 
 Having logging configured help us to clearly see the issue; `first_name` is our primary key and the expected attribute.
 
@@ -132,14 +118,7 @@ Having logging configured help us to clearly see the issue; `first_name` is our 
 http -b POST :8000/donation/create city=Haarlem address="Main street"
 ```
 will show something along the lines of:
-
-```bash{linenos=false}
-# in another terminal
-chalice local --autoreload
-Serving on http://127.0.0.1:8000
-ivica-savealife - DEBUG - Received JSON payload: {'city': 'Haarlem', 'address': 'Main street'}
-ivica-savealife - ERROR - An error occurred (ValidationException) when calling the PutItem operation: One or more parameter values were invalid: Missing the key first_name in the item
-```
+![](/images/code_screenshots/50_100_3.png)
 
 Back to the drawing board...
 

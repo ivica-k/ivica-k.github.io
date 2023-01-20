@@ -105,15 +105,6 @@ pytest
 ```
 
 Output should be similar to:
-```
-=================================== test session starts ===================================
-platform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
-rootdir: ~/serverless_workshop/savealife
-collected 1 item                                                                                                                                                    
-
-tests/test_app.py .
-
-==================================== 1 passed in 0.15s ===================================
-```
+![](/images/code_screenshots/30_500_1.png)
 
 The following page will deal with another important practice in software development which is _logging_.

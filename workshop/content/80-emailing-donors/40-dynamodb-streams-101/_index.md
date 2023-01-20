@@ -37,23 +37,8 @@ aws dynamodb update-table \
 
 The output will contain the stream ARN (Amazon Resource Name, which uniquely identifies AWS resources):
 
-```json
-{
-    "TableDescription": {
-        "TableName": "ivica-savealife-dev",
-        "TableStatus": "UPDATING",
-        "StreamSpecification": {
-            "StreamEnabled": true,
-            "StreamViewType": "NEW_IMAGE"
-        },
-        "LatestStreamLabel": "2022-10-15T17:15:18.355",
-        "LatestStreamArn": "arn:aws:dynamodb:eu-central-1:932785857088:table/ivica-savealife-dev/stream/2022-10-15T17:15:18.355"
-    }
-}
-```
+![](/images/code_screenshots/80_40_1.png)
 
 Append the value of `LatestStreamArn` to the `.env` file, we will need it for later:
 
-```bash
-STREAM_ARN="arn:aws:dynamodb:eu-central-1:123456789012:table/...."
-```
+![](/images/code_screenshots/80_40_2.png)

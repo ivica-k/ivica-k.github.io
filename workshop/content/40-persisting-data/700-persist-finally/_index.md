@@ -13,17 +13,7 @@ to write data to the DynamoDB table. With that fixed it is finally time to persi
 
 If everything went well the output of `chalice deploy` will be slightly different from previous executions
 
-{{<highlight bash "hl_lines=3 6">}}
-Creating deployment package.
-Reusing existing deployment package.
-Creating IAM role: ivica-savealife-dev-api_handler
-Updating lambda function: ivica-savealife-dev
-Updating rest API
-Deleting IAM role: ivica-savealife-dev
-Resources deployed:
-  - Lambda ARN: arn:aws:lambda:eu-central-1:932785857088:function:ivica-savealife-dev
-  - Rest API URL: https://xxxxxxxx.execute-api.eu-central-1.amazonaws.com/api/
-{{</highlight>}}
+![](/images/code_screenshots/40_700_1.png)
 
 A new IAM role named `ivica-savealife-dev-api_handler` was created, our Lambda function was updated to use it and
 the old IAM role named `ivica-savealife-dev` was deleted in the end.
@@ -37,11 +27,7 @@ will work :thumbsup:
 
 Looking at the logs with `chalice logs` we can see something along the lines of:
 
-```bash{linenos=false}
-# ... SNIP ...
-2022-05-12 15:27:17.918000 dded78 ivica-savealife - DEBUG - Received JSON payload: {'first_name': 'ivica', 'email': 'ivica@server.com'}
-2022-05-12 15:27:19.331000 dded78 ivica-savealife - DEBUG - Inserted donor 'ivica@server.com' into DynamoDB table 'dynamodb.Table(name='ivica-savealife-dev')'
-```
+![](/images/code_screenshots/40_700_2.png)
 
 **Congratulations!** :thumbsup:
 

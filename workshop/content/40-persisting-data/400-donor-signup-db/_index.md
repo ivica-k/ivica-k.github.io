@@ -63,12 +63,9 @@ Your `requirements.txt` file should have `boto3` in it.
 ```bash{linenos=false}
 cat requirements.txt 
 ```
-will result in something similar to:
+will result in output similar to:
 
-```bash{linenos=false}
-boto3==1.24.75
-botocore>=1.25.2
-```
+![](/images/code_screenshots/40_400_1.png)
 
 Fun fact: Do you have an idea why is it called "boto"? Click [here](https://en.wikipedia.org/wiki/Amazon_river_dolphin) to find out.
 
@@ -82,13 +79,7 @@ our Lambda function. Whatever files are placed in the `chalicelib` directory wil
 
 The `chalicelib/` folder is to be located on the same level as your `app.py`:
 
-```bash{linenos=false}
-.
-├── app.py
-├── chalicelib
-│   └── __init__.py
-└── requirements.txt
-```
+![](/images/code_screenshots/40_400_2.png)
 
 We can leverage this functionality to split up our application into multiple files as it grows. It is the perfect place
 to put our DynamoDB related code into.
@@ -201,25 +192,11 @@ With the first highlighted line we import the `get_app_db` function that is the 
 
 Invoke the local endpoint and you will get a result similar to this:
 
-```bash{linenos=false}
-{
-    "Code": "InternalServerError",
-    "Message": "An internal server error occurred."
-}
-```
+![](/images/code_screenshots/40_400_3.png)
 
 We can also see that the `chalice local` shows a stacktrace because an error happened
 
-```bash
-ivica-savealife - ERROR - Caught exception for path /donor/signup
-Traceback (most recent call last):
-  File "pythonlib/python3.10/site-packages/chalice/app.py", line 1752, in _get_view_function_response
-    response = view_function(**function_args)
-  ... SNIP ...
-  File "pythonlib/python3.10/site-packages/boto3/resources/base.py", line 125, in __init__
-    raise ValueError(f'Required parameter {identifier} not set')
-ValueError: Required parameter name not set
-```
+![](/images/code_screenshots/40_400_4.png)
 
 Formatting the message in a different way, `ValueError: Required parameter 'name' not set` for example,
 would make it much more clear: a required parameter `name` is not set. In our case, name of the DynamoDB table is

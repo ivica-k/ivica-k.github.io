@@ -34,28 +34,6 @@ It can also scale to $MANY if there is a lot of usage. Know your data access pat
 
 Running the command from above will result in output similar to:
 
-```bash{linenos=false}
-{
-    "TableDescription": {
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "first_name",
-                "AttributeType": "S"
-            }
-        ],
-        "TableName": "ivica-savealife-dev",
-        "KeySchema": [
-            {
-                "AttributeName": "first_name",
-                "KeyType": "HASH"
-            }
-        ],
-        "TableStatus": "CREATING",
-        "BillingModeSummary": {
-            "BillingMode": "PAY_PER_REQUEST"
-        }
-    }
-}
-```
+![](/images/code_screenshots/40_300_1.png)
 
 This step is crucial, please don't proceed further if this step failed and ask for assistance.

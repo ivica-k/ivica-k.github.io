@@ -60,22 +60,15 @@ http :8000/donor/signup first_name=joe
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-{
-    "first_name": "joe"
-}
-```
+![](/images/code_screenshots/30_600_1.png)
+
 and in another terminal window/tab
 
 ```bash{linenos=false}
 chalice local --autoreload
 ```
 will output
-```bash{linenos=false}
-Serving on http://127.0.0.1:8000
-Received JSON payload: {'first_name': 'joe'}
-127.0.0.1 - - [12/May/2022 16:06:35] "POST /donor/signup HTTP/1.1" 200 -
-```
+![](/images/code_screenshots/30_600_1.png)
 
 It is not the prettiest or the most informative log line but
 ![](/images/logging_something.png)
@@ -121,38 +114,26 @@ Which produces log messages that feel like messages produced by the `logging` mo
 chalice local --autoreload
 ```
 outputting
-```bash{linenos=false}
-Serving on http://127.0.0.1:8000
-ivica-savealife - DEBUG - Received JSON payload: {'first_name': 'joe'}
-ivica-savealife - INFO - This is a INFO level message
-127.0.0.1 - - [12/May/2022 16:20:55] "POST /donor/signup HTTP/1.1" 200 -
-```
+![](/images/code_screenshots/30_600_2.png)
 
 Deploy these changes with `chalice deploy` and invoke the function:
 
 ```bash{linenos=false}
 http -b POST $(chalice url)/donor/signup first_name=joe
 ```
-with the output similar to:
 
-```bash{linenos=false}
-{
-    "first_name": "joe"
-}
-```
+Output should be the same as when we invoked the function locally::
 
-Oooook, not much change there. How can we view these logs? And where are they?
+![](/images/code_screenshots/30_600_1.png)
+
+But how can we **view** these logs? And **where** are they?
 
 ```bash{linenos=false}
 chalice logs
 ```
 will output something similar to:
 
-```bash{linenos=false}
-# ... SNIP ...
-2022-05-12 14:35:21 27da7d ivica-savealife - DEBUG - Received JSON payload: {'first_name': 'joe'}
-2022-05-12 14:35:21 27da7d ivica-savealife - INFO - This is a INFO level message
-```
+![](/images/code_screenshots/30_600_4.svg)
 
 These logs are stored remotely in a service called [AWS CloudWatch](https://aws.amazon.com/cloudwatch/). Apart from log 
 storage it provides metrics, dashboards and alarms for resources in your account (Lambda functions, DynamoDB tables etc.)

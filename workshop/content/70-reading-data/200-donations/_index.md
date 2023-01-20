@@ -33,27 +33,7 @@ never hurt anyone, right?
 When you finish making code changes, and assuming you have at least one donation event created, invoking the API endpoint
 should return results similar to these:
 
-```bash
-{
-    "error_message": "",
-    "resource_id": "",
-    "return_value": [
-        {
-            "PK": "DONATION#7ca285890a7a",
-            "address": "2nd street",
-            "city": "Haarlem",
-            "datetime": "2022-04-06T13:00:00"
-        },
-        {
-            "PK": "DONATION#7d54f0be39c7",
-            "address": "Main street",
-            "city": "Haarlem",
-            "datetime": "2022-04-06T12:00:00"
-        }
-    ],
-    "success": true
-}
-```
+![](/images/code_screenshots/70_200_1.png)
 
 Another great success!
 

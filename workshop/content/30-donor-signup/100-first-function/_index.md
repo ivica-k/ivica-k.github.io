@@ -58,11 +58,10 @@ While in `~/serverless_workshop/savealife/`, run
 chalice local --autoreload
 ```
 
-in a terminal of your choice. `--autoreload` will automatically restart the local server when files change. Output 
-should be similar to:
-```bash{linenos=false}
-Serving on http://127.0.0.1:8000
-```
+in a terminal of your choice. `--autoreload` will automatically restart the local server when files change. 
+
+Output should be similar to:
+![](/images/code_screenshots/30_100_1.png)
 
 Hitting that endpoint with an HTTP client of your choice produces the ubiquitous "hello world"
 
@@ -71,17 +70,7 @@ http :8000
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-HTTP/1.1 200 OK
-Content-Length: 20
-Content-Type: application/json
-Date: Fri, 22 Apr 2022 18:09:45 GMT
-Server: BaseHTTP/0.6 Python/3.10.2
-
-{
-    "hello": "world"
-}
-```
+![](/images/code_screenshots/30_100_2.png)
 
 Change the return value in `app.py` and hit the endpoint a few times. Savour this moment if everything works for you
 because chances are we will be breaking things later on :)
@@ -90,24 +79,15 @@ To make this a bit interesting we'll run it on AWS.
 
 ## Deploy the function to AWS
 
-Being a developer friendly tool, Chalice can do the deployments right from your machine. Run `chalice deploy` and if
-you configured everything correctly in the "Prerequisites" phase your screen will be filled with goodness similar to this:
+Being a developer friendly tool, Chalice can do the deployments right from your machine. Run `chalice deploy`:
 
 ```bash{linenos=false}
 chalice deploy
 ```
 
-Output should be similar to:
-```bash{linenos=false}
-Creating deployment package.
-Reusing existing deployment package.
-Creating IAM role: ivica-savealife-dev
-Creating lambda function: ivica-savealife-dev
-Creating Rest API
-Resources deployed:
-  - Lambda ARN: arn:aws:lambda:eu-central-1:xxxxxxxx:function:ivica-savealife-dev
-  - Rest API URL: https://xxxxxxxx.execute-api.eu-central-1.amazonaws.com/api/
-```
+If you configured everything correctly in the "Prerequisites" phase, your screen will be filled with goodness similar 
+to this:
+![](/images/code_screenshots/30_100_3.png)
 
 {{% notice tip %}}
 If you are on a slow connection and `chalice deploy` times out, you can append `--connection-timeout SECONDS` so
@@ -136,9 +116,7 @@ chalice url
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-https://xxxxxxxx.execute-api.eu-central-1.amazonaws.com/api/
-```
+![](/images/code_screenshots/30_100_4.png)
 
 Sending a `GET` request to that endpoint
 
@@ -147,11 +125,7 @@ http -b $(chalice url)
 ```
 
 produces output similar to:
-```bash{linenos=false}
-{
-    "hello": "world"
-}
-```
+![](/images/code_screenshots/30_100_5.png)
 
 Feel free to change the `app.py` and deploy again. The URL of the API Gateway will stay the same so you can just 
 invoke it again to see your changes:
@@ -161,11 +135,7 @@ http -b $(chalice url)
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-{
-    "hello": "world from Ivica"
-}
-```
+![](/images/code_screenshots/30_100_6.png)
 
 Let's jump into the AWS console (login details provided to you) and navigate to [Lambda functions](https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions).
 You will notice a function there called `YOUR_FIRST_NAME-savealife-dev`. Open it by
@@ -175,4 +145,5 @@ Let's have a look on the "Test", "Monitor" and "Configuration" tabs.
 
 ![](/images/first_lambda.png)
 
-Congrats! You've successfully executed your first piece of Python code serverless-ly. In the next page we'll discuss a bit more on Lambda functions now that you've met one of them.
+Congrats! You've successfully executed your first piece of Python code serverless-ly. 
+On the next page we'll discuss a bit more on Lambda functions now that you've met one of them.

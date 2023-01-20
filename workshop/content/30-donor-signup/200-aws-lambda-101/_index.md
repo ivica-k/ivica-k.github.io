@@ -38,18 +38,7 @@ A service event can be generated when a file is uploaded or when a specific API 
 (we will be using those today).
 
 An example event coming from the API Gateway could look like this (shortened for brevity):
-```json
-{
-	"resource": "/",
-	"path": "/",
-	"httpMethod": "GET",
-	"headers": {
-		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
-	},
-	"body": null,
-	"isBase64Encoded": false
-}
-```
+![](/images/code_screenshots/30_200_1.png)
 
 ## Compute resources
 
@@ -78,18 +67,7 @@ Let's assume you have a function configured with 1GB of memory (with no addition
 Price per 1ms for 1024MB of memory is $0.0000000167. Price per 1 million requests is $0.2. AWS Lambda includes 400 000 GB-seconds and 1 million free requests per month.
 
 For 5 million invocations per month, the calculation would be as follows:
-
-```Total request time
-5 000 000 * 120ms = 600 000 seconds
-600 000 * 1024MB = 600 000 GB-seconds
-
-Total GB-seconds - free tier GB-seconds
-600 000 - 400 000 = 200 000 GB-seconds
-200 000 * 0.0000000167 = $3.34
-
-Total requests - free tier requests
-5 000 000 - 1 000 000 = 4 000 000 billable requests
-4 * (1 000 000 * 0.2) / 1 000 000 = $0.8
+![](/images/code_screenshots/30_200_2.png)
 
 ## Scaling
 

@@ -55,30 +55,7 @@ Preparing the layer code is as simple as
 Doing `pip install requests pandas --target my_layer/` produces a familiar directory
 structure. That's how a layer looks like before zipping it into an archive.
 
-```bash
-├── bin
-├── certifi
-├── certifi-2022.9.24.dist-info
-├── charset_normalizer
-├── charset_normalizer-2.1.1.dist-info
-├── dateutil
-├── idna
-├── idna-3.4.dist-info
-├── numpy
-├── numpy-1.23.3.dist-info
-├── numpy.libs
-├── pandas
-├── pandas-1.5.0.dist-info
-├── python_dateutil-2.8.2.dist-info
-├── pytz
-├── pytz-2022.2.1.dist-info
-├── requests
-├── requests-2.28.1.dist-info
-├── six-1.16.0.dist-info
-├── six.py
-├── urllib3
-└── urllib3-1.26.12.dist-info
-```
+![](/images/code_screenshots/60_600_1.png)
 
 #### Creating layers with Chalice
 
@@ -108,18 +85,7 @@ Open the file and add the highlighted line to it:
 Deploy the function now and observe how the output changes slightly; we can see
 that the layer is now being created:
 
-```bash
-Creating shared layer deployment package.
-Creating app deployment package.
-Creating lambda layer: ivica-savealife-dev-managed-layer
-Updating policy for IAM role: ivica-savealife-dev-api_handler
-Updating lambda function: ivica-savealife-dev
-Updating rest API
-Resources deployed:
-  - Lambda Layer ARN: arn:aws:lambda:eu-central-1:932785857088:layer:ivica-savealife-dev-managed-layer:1
-  - Lambda ARN: arn:aws:lambda:eu-central-1:932785857088:function:ivica-savealife-dev
-  - Rest API URL: https://xxxxxxxx.execute-api.eu-central-1.amazonaws.com/api/
-```
+![](/images/code_screenshots/60_600_2.png)
 
 The created layer will contain any library listed in the `requirements.txt` file. It
 is approximately 9.4MB in size. And how does our Lambda function look like now?

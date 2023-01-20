@@ -67,34 +67,20 @@ http -b :8000/donor/signup
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-{
-    "Code": "MethodNotAllowedError",
-    "Message": "Unsupported method: GET"
-}
-```
+![](/images/code_screenshots/30_300_1.png)
 
 ```bash{linenos=false}
 http -b POST :8000/donor/signup
 ```
 
-But the `POST` request will work (although the endpoint returns `null` - it does not error):
-```bash{linenos=false}
-null
-```
+But the `POST` request will work (even though the endpoint returns `null` - it does not error):
+![](/images/code_screenshots/30_300_2.png)
 
 When it comes to the JSON payload itself I would propose we keep things simple. What we need from potential donors
 are 4 pieces of information: their first name, an email for contact, their blood type and the city where they live.
 So, something like this:
 
-```json
-{
-  "first_name": "itsme",
-  "email": "itsme@server.com",
-  "blood_type": "A-",
-  "city": "Amsterdam"
-}
-```
+![](/images/code_screenshots/30_300_3.png)
 
 #### Lambda function
 
@@ -133,14 +119,7 @@ http -b POST :8000/donor/signup first_name=ivica email="ivica@server.com" city=A
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-{
-    "city": "Amsterdam",
-    "email": "ivica@server.com",
-    "first_name": "ivica",
-    "type": "A+"
-}
-```
+![](/images/code_screenshots/30_300_4.png)
 
 ## Does it work for you?
 
@@ -150,15 +129,8 @@ If it does, go ahead and deploy it with `chalice deploy` and make sure it works 
 http -b POST $(chalice url)/donor/signup first_name=ivica email="ivica@server.com" city=Amsterdam type=A+
 ```
 
-Output should be similar to:
-```bash{linenos=false}
-{
-    "city": "Amsterdam",
-    "email": "ivica@server.com",
-    "first_name": "ivica",
-    "type": "A+"
-}
-```
+Output should be the same as when we invoked the function locally:
+![](/images/code_screenshots/30_300_4.png)
 
 If it does **not work** for you now is the time to fix it because the follow-up pages will assume that all the code examples
 up to now were working.
@@ -173,8 +145,4 @@ http -b POST $(chalice url)/donor/signup whoami=meow
 ```
 
 Output should be similar to:
-```bash{linenos=false}
-{
-    "whoami": "meow"
-}
-```
+![](/images/code_screenshots/30_300_5.png)

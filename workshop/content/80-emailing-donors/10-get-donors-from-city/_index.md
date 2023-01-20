@@ -9,32 +9,16 @@ As a short reminder, data structures that we're saving into DynamoDB are:
 
 ##### Donor
 
-```json
-{
-  "first_name": "itsme",
-  "email": "itsme@server.com",
-  "blood_type": "A-",
-  "city": "Amsterdam"
-}
-```
+![](/images/code_screenshots/80_10_1.png)
 
 ##### Blood donation event
 
-```json
-{
-  "city": "Amsterdam",
-  "datetime": "2022-04-06T12:00:00",
-  "address": "Main street"
-}
-```
+![](/images/code_screenshots/80_10_2.png)
 
 Our job is to perform a query on the table that will return to us all the donors from a single city. Roughly translated
 into SQL:
 
-```sql
-SELECT * FROM donors
-WHERE `city` = 'Amsterdam';
-```
+![](/images/code_screenshots/80_10_3.png)
 
 A typical one-to-many relationship.
 

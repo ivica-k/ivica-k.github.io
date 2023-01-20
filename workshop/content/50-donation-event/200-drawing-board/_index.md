@@ -17,13 +17,7 @@ http -b POST :8000/donation/create city=Haarlem address="Main street"
 ```
 will return something along the lines of:
 
-```bash{linenos=false}
-# in another terminal
-chalice local --autoreload
-Serving on http://127.0.0.1:8000
-ivica-savealife - DEBUG - Received JSON payload: {'city': 'Haarlem', 'address': 'Main street'}
-ivica-savealife - ERROR - An error occurred (ValidationException) when calling the PutItem operation: One or more parameter values were invalid: Missing the key first_name in the item
-```
+![](/images/code_screenshots/50_200_1.svg)
 
 `first_name` is the primary key of our table, and it **must** be present in the item being saved to the table.
 But of course, a blood donation event does not have a `first_name`.

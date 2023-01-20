@@ -12,37 +12,11 @@ working?_.
 
 Running `pytest tests` from within `savealife` reveals the ugly truth:
 
-```python
-        # ... SNIP ...
-        with Client(app) as client:
-            response = client.http.post(
-                "/donor/signup",
-                headers={"Content-Type": "application/json"},
-                body=json.dumps(json_payload)
-            )
-    
->           assert response.status_code == 200
-E           assert 400 == 200
-E            +  where 500 = <chalice.test.HTTPResponse object at 0x7fc62f0a5930>.status_code
-
-tests/test_app.py:22: AssertionError
-```
+![](/images/code_screenshots/60_400_1.png)
 
 and looking at the traceback we see that a `ValueError` was raised:
 
-```python
-ivica-savealife - ERROR - Caught exception for path /donor/signup
-Traceback (most recent call last):
-  File "~/serverless_workshop/venv/lib/python3.10/site-packages/chalice/app.py", line 1752, in _get_view_function_response
-    response = view_function(**function_args)
-  File "~/serverless_workshop/savealife/app.py", line 22, in donor_signup
-    return get_app_db().donor_signup(body)
-  File "~/serverless_workshop/savealife/chalicelib/db.py", line 26, in get_app_db
-    table=boto3.resource("dynamodb").Table(TABLE_NAME),
-    # ... SNIP ...
-    raise ValueError(f'Required parameter {identifier} not set')
-ValueError: Required parameter name not set
-```
+![](/images/code_screenshots/60_400_2.png)
 
 Right about now would be a good time to fix it.
 

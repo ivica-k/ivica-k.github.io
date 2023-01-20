@@ -84,46 +84,26 @@ successful and our `status_code` reflects that.
 
 Python dataclasses are not JSON-serializable so if you forgot to wrap it into a `asdict()` function, a `TypeError` will
 be raised:
-```bash
-TypeError: Object of type DBResponse is not JSON serializable
-```
+![](/images/code_screenshots/60_300_1.png)
 
 #### In action locally
 
 Notice the `HTTP/1.1 200 OK` signifing that the `status_code` is 200.
 ```bash
 http POST :8000/donor/signup first_name=ivica email="ivica@server.com" type="A+" city="Amsterdam"
-HTTP/1.1 200 OK
-Content-Length: 82
-Content-Type: application/json
-Date: Sat, 08 Oct 2022 15:01:09 GMT
-Server: BaseHTTP/0.6 Python/3.10.7
-
-{
-    "error_message": "",
-    "resource_id": "e6dd12d96578",
-    "return_value": {},
-    "success": true
-}
 ```
 
-Raising an exception with `raise Exception("This is a simulated exception")` results in:
+resulting in:
+![](/images/code_screenshots/60_300_2.png)
+
+Raising an exception with `raise Exception("This is a simulated exception")`:
 
 ```bash
 http POST :8000/donor/signup first_name=ivica email="ivica@server.com" type="A+" city="Amsterdam"
-HTTP/1.1 400 Bad Request
-Content-Length: 112
-Content-Type: application/json
-Date: Sat, 08 Oct 2022 15:03:57 GMT
-Server: BaseHTTP/0.6 Python/3.10.7
-
-{
-    "error_message": "This is a simulated exception",
-    "resource_id": "43d3ac7db857",
-    "return_value": {},
-    "success": false
-}
 ```
+
+results in:
+![](/images/code_screenshots/60_300_3.png)
 
 #### In action on AWS
 
@@ -131,48 +111,15 @@ Server: BaseHTTP/0.6 Python/3.10.7
 
 ```bash
 http POST $(chalice url)/donor/signup first_name=ivica email="ivica@server.com" type="A+" city="Amsterdam"
-HTTP/1.1 200 OK
-Connection: keep-alive
-Content-Length: 82
-Content-Type: application/json
-Date: Sat, 08 Oct 2022 15:27:52 GMT
-Via: 1.1 4445c4223f8c2460ef5d29a08d1cc6ac.cloudfront.net (CloudFront)
-X-Amz-Cf-Id: m5BQPAIkT-q0So0xw8RTikOw0gKaRt7etH9rAeuIXe3huOILE3DXUw==
-X-Amz-Cf-Pop: AMS54-C1
-X-Amzn-Trace-Id: Root=1-634196f6-0813e73e7bf13966216b7bdf;Sampled=0
-X-Cache: Miss from cloudfront
-x-amz-apigw-id: ZsSGeHgOliAFepw=
-x-amzn-RequestId: 4d934415-495a-4e90-9ac2-6dd314d708b4
-
-{
-    "error_message": "",
-    "resource_id": "7838aa6dbda1",
-    "return_value": {},
-    "success": true
-}
 ```
+
+![](/images/code_screenshots/60_300_4.png)
 
 And to simulate an error I have deleted the DynamoDB table that is used by the application.
 
 ```bash
 http POST $(chalice url)/donor/signup first_name=ivica email="ivica@server.com" type="A+" city="Amsterdam"
-HTTP/1.1 400 Bad Request
-Connection: keep-alive
-Content-Length: 181
-Content-Type: application/json
-Date: Sat, 08 Oct 2022 15:28:57 GMT
-Via: 1.1 c149c6b8a4d6f497cac6f2d9e9e6be40.cloudfront.net (CloudFront)
-X-Amz-Cf-Id: RZjn71PQLMWsgoNAgf1MxBKSN2XilwC17JXOEkcINlEnoPkIzmepBA==
-X-Amz-Cf-Pop: AMS54-C1
-X-Amzn-Trace-Id: Root=1-63419739-6dcc700a51e58f5807eed30f;Sampled=0
-X-Cache: Error from cloudfront
-x-amz-apigw-id: ZsSQ8E3tFiAFm2A=
-x-amzn-RequestId: 623cd6b7-74a7-4c03-b73a-f684cf1eb5e0
-
-{
-    "error_message": "An error occurred (ResourceNotFoundException) when calling the PutItem operation: Requested resource not found",
-    "resource_id": "",
-    "return_value": {},
-    "success": false
-}
 ```
+
+results in:
+![](/images/code_screenshots/60_300_5.png)

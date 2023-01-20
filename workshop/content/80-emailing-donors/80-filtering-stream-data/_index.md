@@ -18,57 +18,17 @@ signs up.
 One way to filter out events we don't want is to implement a few lines of code that will simply discard the events
 that we're not interested in and react to events that we are interested in.
 
-The "donation" event looks like
+The "donation" event looks like:
 
-```json
-{
-	"datetime": {
-		"S": "2022-04-06T12:00:00"
-	},
-	"address": {
-		"S": "Main street"
-	},
-	"city": {
-		"S": "Amsterdam"
-	},
-	"PK": {
-		"S": "DONATION#f9a49760b068"
-	}
-}
-```
+![](/images/code_screenshots/80_80_1.png)
 
-and the "donor sign-up" event looks like
+and the "donor sign-up" event looks like:
 
-```json
-{
-	"PK": {
-		"S": "DONOR#0041b74e223e"
-	},
-	"type": {
-		"S": "0+"
-	},
-	"first_name": {
-		"S": "ivica"
-	},
-	"email": {
-		"S": "ivica@server.com"
-	}
-}
-```
+![](/images/code_screenshots/80_80_2.png)
 
 It would be fairly easy to check whether the `PK` starts with a `DONOR#` or `DONATION#`:
 
-```python
-pk = stream_data.get("PK").get("S")
-        
-if not pk.startswith("DONATION#"):
-    pass
-
-else:
-    city_name = stream_data.get("city").get("S")
-    # query the table 
-    # do more stuff
-```
+![](/images/code_screenshots/80_80_3.png)
 
 But filtering in this way also introduces several issues:
 - adds complexity in the business logic portion of the application. Code is a liability that must be tested and maintained
@@ -113,20 +73,12 @@ of those (Chalice did it for us):
 But because Chalice does not (yet) support filters for event sources we have to do it ourselves. No biggie.
 The filter itself looks like this:
 
-```json
-[
-  {
-    "key": "{\"dynamodb\": {\"NewImage\": {\"PK\": {\"S\": [{\"prefix\": \"DONATION\"}]}}}}"
-  }
-]
-```
+![](/images/code_screenshots/80_80_4.png)
 
 and can be roughly translated into 
-```text
-match all `dynamodb` `NewImage` events where the value of PK starts with 'DONATION'
-```
+![](/images/code_screenshots/80_80_5.png)
 
-##### Get the ID of the existing mapping
+##### Get the ID of the existing mapping to include the filter
 
 ```bash
 MAP_UUID=$(aws lambda list-event-source-mappings --function-name $WORKSHOP_NAME-savealife-$ENV-handle_stream | jq -r .EventSourceMappings[0].UUID)
@@ -153,12 +105,7 @@ which results in a filter added to our trigger
 
 The logs will show the following:
 
-```bash
-# OLD donor sign-up from day before
-2022-10-28 19:11:26.108000 f45a1f ivica-savealife - DEBUG - {'SK': {'S': 'CITY#Haarlem'}, 'PK': {'S': 'DONOR#0041b74e223e'}, 'type': {'S': '0+'}, 'first_name': {'S': 'ivica'}, 'email': {'S': 'ivica@server.com'}}
-# donation event created just now
-2022-10-29 18:25:35.870000 ff4fe9 ivica-savealife - DEBUG - {'datetime': {'S': '2022-04-06T12:00:00'}, 'address': {'S': 'Main street'}, 'city': {'S': 'Amsterdam'}, 'SK': {'S': 'CITY#Amsterdam'}, 'PK': {'S': 'DONATION#aa493a26bc8f'}}
-```
+![](/images/code_screenshots/80_80_6.png)
 
 Notice how there are no logs for the donor sign-up that we performed just now? That's the filters at work; the Lambda function
 is not being invoked for donor sign-ups, it is invoked only for blood donation events.

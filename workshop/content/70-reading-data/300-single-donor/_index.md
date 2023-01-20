@@ -31,9 +31,7 @@ On one of the [previous pages](../70-reading-data/100-donors.html) we saw that t
 `DONOR#68252cff869a`. That's our target then: we need a way to somehow perform a query that may look like this in the
 SQL world:
 
-```sql
-SELECT * FROM 'mytable' WHERE 'PK' = "DONOR#68252cff869a"
-```
+![](/images/code_screenshots/70_300_1.png)
 
 #### API design
 
@@ -117,9 +115,7 @@ When read in plain English, `KeyConditionExpression="PK = :PK"` simply means "pr
 value of `:PK`". That placeholder value is then supplied by the `ExpressionAttributeValues` where the value for our `:PK`
 placeholder is set to `DONOR#68252cff869a`. Basically this
 
-```sql
-SELECT * FROM 'mytable' WHERE 'PK' = "DONOR#68252cff869a"
-```
+![](/images/code_screenshots/70_300_1.png)
 
 but in DynamoDB query language.
 
@@ -129,17 +125,4 @@ Putting the two code additions together we end up with the following action work
 
 `http -b GET :8000/donor/68252cff869a`
 
-```bash
-{
-    "error_message": "",
-    "resource_id": "",
-    "return_value": {
-        "PK": "DONOR#68252cff869a",
-        "city": "Amsterdam",
-        "email": "ivica@server.com",
-        "first_name": "ivica",
-        "type": "A+"
-    },
-    "success": true
-}
-```
+![](/images/code_screenshots/70_300_2.png)

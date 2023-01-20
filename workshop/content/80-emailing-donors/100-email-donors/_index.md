@@ -48,13 +48,7 @@ def chunk_list(lst, chunk_size):
 
 This will allow us to split a list `lst` with many elements into even chunks of `chunk_size`. This is how it works:
 
-```python
->>> from chalicelib.utils import chunk_list
-
->>> chunked_list = [elem for elem in chunk_list([1, 2, 3, 4, 5], 2)]
->>> print(chunked_list)
-[[1, 2], [3, 4], [5]]
-```
+![](/images/code_screenshots/80_100_1.png)
 
 We can also write a test for this function. Your time to shine again.
 
@@ -75,16 +69,7 @@ def test_chunk_list():
 
 Run `pytest` to make sure it is included and passing:
 
-```bash
-======================================== test session starts =========================================
-platform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
-collected 3 items                                                       
-
-tests/test_app.py ..                                                                            
-tests/test_utils.py .
-
-========================================= 3 passed in 0.70s ==========================================
-```
+![](/images/code_screenshots/80_100_2.png)
 
 And finally, batching those email addresses can be done in this way:
 

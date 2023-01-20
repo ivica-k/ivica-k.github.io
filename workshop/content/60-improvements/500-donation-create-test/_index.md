@@ -11,15 +11,7 @@ It is very similar to the existing test for the `/donor/signup` endpoint.
 
 Once you finish the end result should show two successful tests.
 
-```bash
-======================================== test session starts =========================================
-platform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
-collected 2 items                                                       
-
-tests/test_app.py ..                                                                            
-
-========================================= 2 passed in 1.70s ==========================================
-```
+![](/images/code_screenshots/60_500_1.png)
 
 ***
 

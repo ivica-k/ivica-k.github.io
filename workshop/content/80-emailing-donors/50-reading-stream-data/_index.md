@@ -49,15 +49,6 @@ We can only see the interaction between DynamoDB streams and our Lambda function
 stream data can not reach our Chalice that is running locally. So, lets deploy!
 
 As expected, the deployment failed because our function does not have the required permissions.
-```bash
-chalice.deploy.deployer.ChaliceDeploymentError: ERROR - While deploying your chalice application, received the following error:
-
- An error occurred (InvalidParameterValueException) when calling the 
- CreateEventSourceMapping operation: Cannot access stream arn:aws:dynamodb:eu-
- central-1:932785857088:table/ivica-savealife-
- dev/stream/2022-10-29T17:50:06.747. Please ensure the role can perform the 
- GetRecords, GetShardIterator, DescribeStream, and ListStreams Actions on your 
- stream in IAM.
-```
+![](/images/code_screenshots/80_50_1.svg)
 
 Fixing those permissions is our next task!
