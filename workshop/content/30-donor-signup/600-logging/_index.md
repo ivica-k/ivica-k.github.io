@@ -68,7 +68,7 @@ and in another terminal window/tab
 chalice local --autoreload
 ```
 will output
-![](/images/code_screenshots/30_600_1.png)
+![](/images/code_screenshots/30_600_2.png)
 
 It is not the prettiest or the most informative log line but
 ![](/images/logging_something.png)
@@ -108,13 +108,13 @@ def donor_signup():
     return body
 {{</highlight>}}
 
-Which produces log messages that feel like messages produced by the `logging` module from stdlib.
+Which produces log messages that feel like messages produced by the `logging` module from the standard library.
 
 ```bash{linenos=false}
-chalice local --autoreload
+http :8000/donor/signup first_name=joe
 ```
-outputting
-![](/images/code_screenshots/30_600_2.png)
+will output:
+![](/images/code_screenshots/30_600_3.png)
 
 Deploy these changes with `chalice deploy` and invoke the function:
 
@@ -133,7 +133,7 @@ chalice logs
 ```
 will output something similar to:
 
-![](/images/code_screenshots/30_600_4.svg)
+![](/images/code_screenshots/30_600_4.png)
 
 These logs are stored remotely in a service called [AWS CloudWatch](https://aws.amazon.com/cloudwatch/). Apart from log 
 storage it provides metrics, dashboards and alarms for resources in your account (Lambda functions, DynamoDB tables etc.)
