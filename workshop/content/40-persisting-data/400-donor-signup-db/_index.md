@@ -190,11 +190,11 @@ def donor_signup():
 
 With the first highlighted line we import the `get_app_db` function that is the interface for interacting with DynamoDB. Changing the `return` statement _will_ break our tests but that's all right.
 
-Invoke the local endpoint and you will get a result similar to this:
+Invoke the local endpoint with `http :8000/donor/signup first_name=joe` and you will get a result similar to this:
 
 ![](/images/code_screenshots/40_400_3.png)
 
-We can also see that the `chalice local` shows a stacktrace because an error happened
+We can also see that the `chalice local` shows a stacktrace because an error happened:
 
 ![](/images/code_screenshots/40_400_4.png)
 

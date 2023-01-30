@@ -103,7 +103,13 @@ class SavealifeDB:
 
 ##### Moment of truth
 
-Run the local server `chalice local --autoreload` and hit the endpoint we just created. Does it work? What happened?
+Run the local server `chalice local --autoreload` and hit the endpoint we just created. 
+
+```bash
+http :8000/donation/create city=Haarlem blood_types="A-" address="Main Street"
+```
+
+Does it work? What happened?
 
 #### Another error ...
 

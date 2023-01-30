@@ -51,7 +51,7 @@ A "donor" item looked like this, with `first_name` being the primary key:
 
 Now the primary key will be the `PK` field and everything else, the whole JSON payload, will become attributes.
 
-You may use the following code sample to implement the required changes:
+You may use the following code sample to implement the required changes in `chalicelib/db.py`:
 
 {{<highlight python "hl_lines=3 40 48 61 68">}}
 import logging
