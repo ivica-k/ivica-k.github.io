@@ -17,9 +17,9 @@ http -b POST :8000/donation/create city=Haarlem address="Main street"
 ```
 will return something along the lines of:
 
-![](/images/code_screenshots/50_200_1.svg)
+![](/images/code_screenshots/50_200_1.png)
 
-`first_name` is the primary key of our table, and it **must** be present in the item being saved to the table.
+`first_name` is the primary key of our table, so it **must** be present in the item being saved to the table.
 But of course, a blood donation event does not have a `first_name`.
 
 ![](/images/db_table_1.png)
